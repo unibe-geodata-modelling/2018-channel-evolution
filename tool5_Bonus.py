@@ -20,6 +20,7 @@ def doRead():
     print('read\'em all in''\n')
 
     return dat_data
+
 def doSum():
     '''calculate sum of sediment yield for all scenarios'''
     sum = []
@@ -28,6 +29,7 @@ def doSum():
         sum.append(sum_Qs)
     sum = np.array(sum).reshape(6, 2)       # reshape it two array with 6 rows and 2 cols
     return sum
+
 def doDiff():
     '''calculate the difference of sed yield between the tow simulation rusn'''
     diff_perc = []
@@ -36,6 +38,7 @@ def doDiff():
         diff_perc.append(diff)
     diff_perc = np.array(diff_perc).reshape(6, 1)
     return diff_perc
+
 def doHydro(time,n, z):
     '''fill the created hydrograph with any number (n) and repeat the number for a certain number of times (z)'''
     hydro = []
@@ -45,6 +48,7 @@ def doHydro(time,n, z):
         hydro.append(discharge)
     hydro = np.array(hydro)
     return hydro
+
 def doPlot(xlabel, ylabel, ytick1, ytick2, ax_size, l_size, title, save):
     '''plot the hydro- or sedigraph'''
     floods = ['(a) 2 apart', '(b) 2 close', '(c) 2 med', '(d) 1 first', '(e) 1 middle', '(f) 1 last']

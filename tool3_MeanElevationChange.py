@@ -33,6 +33,7 @@ def doDEMdiff(scenarios, diffyear):
 
     print('\n''difference calculations finished''\n')
     return DEMdiffzero, DEMdiffnan
+
 def doProfile (paths, scenarios, diffyear, DEMdiff):
     '''mask all generated arrays with the thalweg array, so only the values that belong to the thalweg are analyzed'''
     # load in thalweg file, created in ArcGIS with flow accumulation, which has the same extent as the DEM
@@ -57,6 +58,7 @@ def doProfile (paths, scenarios, diffyear, DEMdiff):
     thalnan = np.array(thal)
     print('thalweg read in and zeros changed to NaN''\n')
     return thalzero, thalnan
+
 def doStatistics(scenarios, diffyear, elev_diff):
     """calculate mean, std of difference of selected years"""
     mean_DEMdiff = []
@@ -92,6 +94,7 @@ def doStatistics(scenarios, diffyear, elev_diff):
     rmse_DEMdiff = np.array(rmse_DEMdiff)
     print('statistic calculations finished''\n')
     return mean_DEMdiff, std_DEMdiff, rmse_DEMdiff
+
 def doNewArray(input):
     '''create arrays to original elev array: specific maintenance scn ("perc"), location scn ("loc"), flood scn ("flood")'''
     perc_loc = np.repeat(np.arange(0, 7, 0.5), 6).reshape(input.shape[0], 1)
@@ -99,6 +102,7 @@ def doNewArray(input):
     floods = np.array(14 * ['2apart', '2close', '2med', 'a_first', 'b_middle', 'c_last']).reshape(input.shape[0], 1)
     new_array = np.append(new_array, floods, axis=1)  # append third column to STD array
     return new_array
+
 def doArray(elev_diff):
     '''create new array which is sorted in the right way for analyzing summary statistics of difference'''
     new_array = doNewArray(elev_diff)
@@ -154,6 +158,7 @@ def doArray(elev_diff):
         split2 = np.array(split2)
     print('array created''\n')
     return split1, split2
+
 def doMinMax(elev_diff):
     '''calculates the min and the max value for each flood scenario. depending on how many diffyears are analyzed
     (if 1 or more), the calculation method is adapted'''
@@ -237,6 +242,7 @@ def doMinMax(elev_diff):
         max2 = np.array([(max[:,x]) for x in range(11, 14)])
     print('min and max calculated''\n')
     return min1, min2, max1, max2
+
 def doFloodmean(elev_diff):
     '''calculates the flood mean of all flood scenarios. depending on how many diffyears are analyzed (if 1 or more),
     the calculation method is adapted'''
@@ -299,6 +305,7 @@ def doFloodmean(elev_diff):
 
     print('mean_flood calculated''\n')
     return split1, split2
+
 def doColors(diffyear):
     '''create color palette to plot the different diff_yrs scenarios. depending on the number of diff_years,
     the palette will be extended'''
@@ -351,6 +358,7 @@ def doColors(diffyear):
                                     ['#4c3100', '#4c1400', '#3d1451', '#0c3966', '#0f3d0f', '#1f1f1f'],
                                     ['#3d2700', '#330d00', '#2d0f3d', '#092b4c', '#0a290a', '#0a0a0a']])
     return palette
+
 def doPlot(diff1, diff2, flood1, flood2, min1, min2, max1, max2, diffyear, diff):
     '''create two different plots, first one for all flood scn seperately, second one for the mean of all flood scn and
     its range. the plots includes the location scenarios'''
@@ -444,6 +452,7 @@ def doPlot(diff1, diff2, flood1, flood2, min1, min2, max1, max2, diffyear, diff)
         plt.savefig(save2, dpi=300, bbox_inches='tight')
         print('plots with maintenance and location scenario''\n')
     return
+
 def doPlot_maint(diff1, flood1, min1, max1, diffyear, diff):
     '''create two different plots, first one for all flood scn seperately, second one for the mean of all flood scn and
     its range. the plots only show the maintenance effort scenarios'''
@@ -552,6 +561,7 @@ def doPlot_maint(diff1, flood1, min1, max1, diffyear, diff):
         plt.savefig(save2, dpi=300, bbox_inches='tight')
         print('plots with maintenance scenario''\n')
     return
+
 def doPlot_loc(diff1, diff2, flood1, flood2, min2, max2, diffyear, diff):
     '''create two different plots, first one for all flood scn seperately, second one for the mean of all flood scn and
     its range. the plots only show the maintenance location scenarios'''
@@ -680,6 +690,7 @@ def doPlot_loc(diff1, diff2, flood1, flood2, min2, max2, diffyear, diff):
         plt.savefig(save2, dpi=300, bbox_inches='tight')
         print('plots with location scenario''\n')
     return
+
 def doExport(scenarios):
     '''export all arrays to ArcGIS files which include geometric information or to normal files'''
     ArcGIS = 'ncols 127' '\n' 'nrows 115' '\n' 'xllcorner 602510.99199495' '\n'\
@@ -692,6 +703,7 @@ def doExport(scenarios):
         np.savetxt(diff_name.format(x=scenario), DEMdiff_thal0[scenario, 0, :, :], delimiter=' ', comments='', header=ArcGIS)
     # np.savetxt(scenario_list, elev[:, :], delimiter=' ', comments='', fmt="%s")
     print('\n''saved them ALL''\n')
+
 
 # -DEFINE GLOBAL VARIABLES HERE-
 # years from which the difference should be calculated. (uncomment which one you want to calculate!)

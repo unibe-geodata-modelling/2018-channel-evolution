@@ -22,6 +22,7 @@ def doRead(files):
     dat_data = np.array(dat_data)
     print('\n''well, that took a while, thank\'s for being so patient. hope dinner or dishes or even both are done by now''\n')
     return dat_data
+
 def doSumSed(file):
     '''calculate sum of sediment yield for all scenarios'''
     sumsed = []
@@ -30,6 +31,7 @@ def doSumSed(file):
         sumsed.append(sum_Qs)
     sumsed = np.array(sumsed)
     return sumsed
+
 def doCumsum(file):
     '''calculate cumulative sum of sediment yield for all scenarios'''
     cumsum = []
@@ -44,6 +46,7 @@ def doCumsum(file):
     cumsum = cumsum[:, np.arange(0, cumsum.shape[1], (24*365))]
     print('ALL done! cumsum is calculated.''\n')
     return cumsum
+
 def doNewArray(input):
     '''create arrays to original elev array: specific maintenance scn ("perc"), location scn ("loc"), flood scn ("flood")'''
     perc_loc = np.repeat(np.arange(0, 7, 0.5), 6).reshape(input.shape[0], 1)
@@ -51,6 +54,7 @@ def doNewArray(input):
     floods = np.array(14 * ['2apart', '2close', '2med', 'a_first', 'b_middle', 'c_last']).reshape(input.shape[0], 1)
     new_array = np.append(new_array, floods, axis=1)  # append third column to STD array
     return new_array
+
 def doArray(sed_a, sed_m):
     '''create new array which is sorted in the right way for analyzing summary statistics of difference'''
     new_array = doNewArray(sed_a)
@@ -86,6 +90,7 @@ def doArray(sed_a, sed_m):
 
     print('array created''\n')
     return split1, split2, msplit1, msplit2
+
 def doMinMax(sed):
     '''calculates the min and the max value for each flood scenario. depending on if only 1 or 2 sediment yield values
     are analyzed, the calculation method is adapted'''
@@ -166,6 +171,7 @@ def doMinMax(sed):
         max2 = np.array([(max[:, x]) for x in range(11, 14)])
     print('min and max calculated''\n')
     return min1, min2, max1, max2
+
 def doFloodmean(elev_diff):
     '''calculates the flood mean of all flood scenarios'''
     new_array = doNewArray(elev_diff)
@@ -196,6 +202,7 @@ def doFloodmean(elev_diff):
 
     print('mean_flood calculated''\n')
     return split1, split2
+
 def doSplit(cumsum):
     '''split the new created array into the maitnenance effort and location scenarios'''
     perc_loc = np.repeat(np.array([0, 5, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5.5, 6, 6.5]), 6).reshape(cumsum.shape[0], 1)
@@ -264,6 +271,7 @@ def doSplit(cumsum):
     max_off = max-offset
     print('profile split into maintenance scenarios. mean of different flood scenarios calculated.''\n')
     return split_off
+
 def doColors(diffyear):
     '''create color palette to plot the different diff_yrs scenarios. depending on the number of diff_years,
     the palette will be extended'''
@@ -316,6 +324,7 @@ def doColors(diffyear):
                                     ['#4c3100', '#4c1400', '#3d1451', '#0c3966', '#0f3d0f', '#1f1f1f'],
                                     ['#3d2700', '#330d00', '#2d0f3d', '#092b4c', '#0a290a', '#0a0a0a']])
     return palette
+
 def doPlot(scenario, diff1, diff2, flood1, flood2, min1, min2, max1, max2, color, xlabel, ylabel1, ylabel2,
            title, save1, save2):
     '''create two different plots, first one for all flood scn seperately, second one for the mean of all flood scn and
@@ -397,6 +406,7 @@ def doPlot(scenario, diff1, diff2, flood1, flood2, min1, min2, max1, max2, color
     # plt.axvspan(0, 1, color='grey', alpha=0.05, lw=0)
     # plt.axvspan(4, 5, color='grey', alpha=0.05, lw=0)
     plt.savefig(save2, dpi=300, bbox_inches='tight')
+
 def doPlot_maint(scenario, diff1, flood1, min1, max1, color, xlabel, ylabel1, ylabel2, title, save1, save2):
     '''create two different plots, first one for all flood scn seperately, second one for the mean of all flood scn and
     its range. the plots only show the maintenance effort scenarios'''
@@ -462,6 +472,7 @@ def doPlot_maint(scenario, diff1, flood1, min1, max1, color, xlabel, ylabel1, yl
         # plt.legend(ncol=1, fontsize=l_size, bbox_to_anchor=(0.042, 0.03), loc=3)
     plt.xticks([r + 0.005 for r in np.arange(0, 5.5, 0.5)], [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100], fontsize=l_size)
     plt.savefig(save2, dpi=400, bbox_inches='tight')
+
 def doPlot_loc(scenario, diff1, diff2, flood1, flood2, min1, min2, max1, max2, color, xlabel, ylabel1, ylabel2,
                title, save1, save2):
     '''create two different plots, first one for all flood scn seperately, second one for the mean of all flood scn and
@@ -542,6 +553,7 @@ def doPlot_loc(scenario, diff1, diff2, flood1, flood2, min1, min2, max1, max2, c
         #                     title=legend_h, bbox_to_anchor=(0.042, 0.03), loc=3)
     plt.xlim(5.4, 6.7)
     plt.savefig(save2, dpi=300, bbox_inches='tight')
+
 def doPlot_cross(crosssection, xlabel, ylabel, l_size, ax_size, title, save):
     '''sediment aggregation in four different downstream cross sections for analyze the remaining potential water depth'''
     palette = np.array(['#e3ce8d', '#ffa584', '#db786c', '#e796d8', '#8e729d', '#7ba6d0', '#198c8c',
@@ -586,6 +598,7 @@ def doPlot_cross(crosssection, xlabel, ylabel, l_size, ax_size, title, save):
 
     plt.savefig(save, dpi=300, bbox_inches='tight')
     print('cross sections plotted''\n')
+
 def doPlot_cum_maint(scenario, cums, ylabel, title1, title2, save):
     '''create plot with 6 subplots for flood scenarios, each plot presenting the cumulative sediment yield over time'''
     # subplot for all flood scn
@@ -664,6 +677,7 @@ def doPlot_cum_maint(scenario, cums, ylabel, title1, title2, save):
         floods = ['2 apart', '2 close', '2 med', '1 first', '1 middle', '1 last']
         plt.savefig('U:simulations/analysis/python/sed yield/CumSumIndplot'+floods[x]+'_diffcol2_maint.png', dpi=300,
                     bbox_inches='tight')
+
 def doPlot_cum_loc(scenario, cums, ylabel, title1, title2, save):
     '''create plot with 6 subplots for flood scenarios, each plot presenting the cumulative sediment yield over time'''
     # subplot for all flood scn

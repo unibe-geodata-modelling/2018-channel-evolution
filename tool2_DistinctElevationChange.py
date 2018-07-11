@@ -27,6 +27,7 @@ def doDEMdiff(scenarios):
     DEMdiffzero = np.array(DEMdiffzero)
     print('difference calculations finished''\n')
     return DEMdiffzero
+
 def doProfile_prof (in1, in2, scenarios, DEM):
     '''mask all generated arrays with the thalweg array, so only the values that belong to the thalweg are analyzed'''
     # load in thalweg file, created in ArcGIS with flow accumulation, which has the same extent as the "cut" DEM
@@ -61,6 +62,7 @@ def doProfile_prof (in1, in2, scenarios, DEM):
     thal_end = np.array(thal_end)
     print('profile built along thalweg''\n')
     return thal_start, thal_end
+
 def doProfile_diff (paths, scenarios, DEMdiff):
     '''mask all generated arrays with the thalweg array, so only the values that belong to the thalweg are analyzed'''
     # load in thalweg file, created in ArcGIS with flow accumulation, which has the same extent as the DEM
@@ -89,6 +91,7 @@ def doProfile_diff (paths, scenarios, DEMdiff):
 
     print('profile built along thalweg''\n')
     return thal
+
 def doNewArray(input):
     '''create arrays to original elev array: specific maintenance scn ("perc"), location scn ("loc"), flood scn ("flood")'''
     perc_loc = np.repeat(np.arange(0, 7, 0.5), 6).reshape(input.shape[0], 1)
@@ -96,6 +99,7 @@ def doNewArray(input):
     floods = np.array(14 * ['2apart', '2close', '2med', 'a_first', 'b_middle', 'c_last']).reshape(input.shape[0], 1)
     new_array = np.append(new_array, floods, axis=1)  # append third column to STD array
     return new_array
+
 def doMean(prof):
     '''create new array which is sorted in the right way for analysis'''
     new_array = doNewArray(prof)
@@ -147,6 +151,7 @@ def doMean(prof):
 
     print('flood mean, min and max calculated.''\n')
     return mean, min, max
+
 def doPlot_prof(initialDEM, finalDEM, xlabel, ylabel, ax_size, l_size, title, save1, save2):
     '''plot the total longitudinal profile of two maintenance scn (0+100% maintenance)'''
     legend = np.array(['final DEM', 'initial DEM'])
@@ -277,6 +282,7 @@ def doPlot_prof(initialDEM, finalDEM, xlabel, ylabel, ax_size, l_size, title, sa
     plt.yticks(np.arange(750, 1000, 50), range(750, 1000, 50), fontsize=l_size)
     plt.savefig(save2, dpi=300, bbox_inches='tight')
     print('longitudinal profile plotted''\n')
+
 def doPlot_diff(mean, min, max, xlabel, ylabel, l_size, ax_size, title1, title2, title3, save1, save2):
     '''plot the elevation difference along the longitudinal profile of the channel for four different maintenance scn'''
     # maint scn
@@ -358,6 +364,7 @@ def doPlot_diff(mean, min, max, xlabel, ylabel, l_size, ax_size, title1, title2,
     plt.legend(ncol=2, fontsize=l_size, framealpha=0, bbox_to_anchor=(0.6, 0.012), loc=3)
     plt.savefig(save2, dpi=300, bbox_inches='tight')
     print('mean and range of elevation change plotted''\n')
+
 def doHigherThan(n):
     highervalues=[]
     relvalues=[]

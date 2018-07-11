@@ -22,6 +22,7 @@ def doPaths(floods, maintenances, locations, path, path2):
             scenario_list.append(paths2)
     print('\n''path list created''\n')
     return scenario_list
+
 def doElev(length, scenariolist):
     '''get all the files within the specific paths. sort them by string length'''
     elev_list = []
@@ -33,6 +34,7 @@ def doElev(length, scenariolist):
     elev = np.array(sorted_list)                                     # change list into array with 101 cols, 66 rows
     print('\n''elev list created''\n''\n')
     return elev
+
 def doDEM(scenario, year, array):
     '''read in all files from created path array. store them in a 4D array'''
     DEM = []
