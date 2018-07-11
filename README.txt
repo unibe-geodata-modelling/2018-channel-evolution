@@ -34,7 +34,6 @@ The folders and subfolders represent different scenarios from a simulation and t
 The folders differ by the numbers 0-100 with the increment of 10 and three location scenarios. the name of the subfolders 
 is written in the list "floods”.
 
-
 + Tool 2: Spatially distinct change in channel elevation
 PROFILE & ELEVATION DIFFERENCE ALONG THE CHANNEL: This script firstly creates the longitudinal profile of the channel at 
 the beginning and at the end of the simulation. It also cuts the profile into three parts so the differences are better 
