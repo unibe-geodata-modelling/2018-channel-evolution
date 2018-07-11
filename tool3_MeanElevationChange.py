@@ -5,7 +5,8 @@
 # (difference after 100 years) or the second option (continuous difference during the 100 years), different figures will
 # be plotted. The figures present either the mean channel change after the whole simulation time for the different
 # scenarios or the evolution of the channel change within the 100 years of simulation. If 'diff_yrs = [100]', all
-# arrays exported to ArcGIS files, which include geometric information.
+# arrays exported to ArcGIS files, which include geometric information. Additionally, a function for a unique cholor scheme 
+# is developed.
 
 # -IMPORT LIBRARIES & VARIABLES HERE-
 import numpy as np
