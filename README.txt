@@ -1,5 +1,5 @@
 -----------------------------------
-TOOLS TO ANALYZE CHANNEL EVOLUTIOM 
+TOOLS TO ANALYZE CHANNEL EVOLUTION
 -----------------------------------
 
 Program: Python 3.6 
