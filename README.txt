@@ -23,7 +23,8 @@ REQUIRED DATA
 --------------------
 The model saved the outputs in the following formats: 
 + The model exported DEMs as elev.dat(x).txt files, which could be read directily in ArcGIS; each year a DEM was saved.
-+ The sediment yield was saved in one file per scenario in the format (x).dat; the file was hourly updated with a new row containing information about the sediment yield.
++ The sediment yield was saved in one file per scenario in the format (x).dat; the file was hourly updated with a new row 
+containing information about the sediment yield.
 
 TOOL DESCRIPTION
 --------------------
@@ -40,7 +41,8 @@ the beginning and at the end of the simulation. It also cuts the profile into th
 visible. The profiles are generated for two maintenance scenarios. more could be added: change in 'doPlot_prof' the index 
 in the variable `finalDEM[i]` to the requested scenario (0=0% maint, 1=10% maint etc.). Secondly, the spatially distributed 
 elevation differences are calculated. This for 4 different maintenance scn. Same here, the number of these can be changed 
-in the `doPlot_diff` function ('DEMdiff[i]'). Additionally, the number and the relative share of cells which are below a 
+in the `doPlot_diff` function ('DEMdiff[i]'). 
+Additionally, the number and the relative share of cells which are below a 
 certain erosion/deposition threshold can be calculated (e.g. x% of all values lie below n)
 
 + Tool 3: Mean change in channel elevation (over time)
