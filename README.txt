@@ -1,5 +1,5 @@
 -----------------------------------
-TOOLS TO ANALYZE OUTPUTS FROM A LEM 
+TOOLS TO ANALYZE CHANNEL EVOLUTIOM 
 -----------------------------------
 
 Program: Python 3.6 
@@ -41,7 +41,7 @@ ACCESS FILES FROM FOLDERS & SUBFOLDERS: This script imports all files that are s
 The name of these folders and files follow a pattern and can be read in automatically after creating a path to each file. 
 The folders and subfolders represent different scenarios from a simulation and the files are digital elevation models (DEM). 
 The folders differ by the numbers 0-100 with the increment of 10 and three location scenarios. the name of the subfolders 
-is written in the list "floodsî.
+is written in the list "floods‚Äù.
 
 
 + Tool 2: Spatially distinct change in channel elevation
