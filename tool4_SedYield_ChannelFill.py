@@ -756,12 +756,12 @@ lim_range = -2, 102
 titel_fill = "Downstream channel fill after 100 years of simulation"
 xlabel = "                                        Maintenance effort [%]" \
          "                                                                 Location"
-ylabel_fill1 = "Potential storage [%]"
-ylabel_fill2 = "Potential storage [m]"
+ylabel_fill1 = "Consumed storage potential [%]"
+ylabel_fill2 = "Channel aggradation [m]"
 lab_mean = "Mean of hydrographs"
-lab_mean2 = "Mean of hydrographs for potential storage [m]"
+lab_mean2 = "Mean of hydrographs [m]"
 lab_range = "Range of hydrographs"
-lab_range2 = "Range of hydrographs for potential storage [m]"
+lab_range2 = "Range of hydrographs [m]"
 label_30 = "30 % maintenance"
 legend_h = "Hydrograph"
 save_fill1 = 'U:simulations/analysis/python/sed yield/FillAll_maint+loc.png'
