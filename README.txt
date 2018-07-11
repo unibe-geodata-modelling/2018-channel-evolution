@@ -51,7 +51,8 @@ years of difference you want to look at (e.g. always calculate the difference af
 the flood events, or only after the big flood events). Depending if you chose the first option (difference after 100 years) or
 the second option (continous difference during the 100 years), different figures will be plotted. The figures present either the 
 mean channel change after the whole simulation time for the different scenarios or the evolution of the channel change within 
-the 100 years of simulation. If 'diff_yrs = [100]', all arrays exported to ArcGIS files, which include geometric information. Additionally, a function for a unique cholor scheme is developed.
+the 100 years of simulation. If 'diff_yrs = [100]', all arrays exported to ArcGIS files, which include geometric information. 
+Additionally, a function for a unique cholor scheme is developed.
 
 + Tool 4: Sediment yield with potential channel fill (over time)
 SED YIELD + DOWNSTREAM FILL: this script deals with the sediment yield generated at the output of the model. it calculates the 
