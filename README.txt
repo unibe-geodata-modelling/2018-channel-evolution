@@ -17,7 +17,8 @@ and 73,584,000 sediment rates, which have been analyzed using the following scri
 + Tool 2: spatially distinct change in channel elevation
 + Tool 3: mean change in channel elevation (over time)
 + Tool 4: sediment yield with potential channel fill (over time)
-+ Tool 5: comparison & synthetic input
++ Tool 5: grain-size distribution (over time)
++ Tool 6: comparison & synthetic input
 
 REQUIRED DATA
 --------------------
@@ -59,7 +60,10 @@ SED YIELD + DOWNSTREAM FILL: this script deals with the sediment yield generated
 total sum of sediment yield, cumulative sediment yield (evolution of sediment yield over simulation time), potential downstream 
 channel fill in percentage and meters, and the cross section specific analysis of channel aggradation. 
 
-+ Tool 5: Comparison & synthetic input
++ Tool 5: Grain-size distribution (over time)
+Grain-size distribution: this script deals with the different grain-size distributions generated at the output of the model. In total there are 9 different grain-size fractions. This script analyzes the absolute amount of every grain-size fractions and the relative distribution. Additionally, it calcu-lates for every grain-size column the highest value (for the absolute and relative value) per simulation
+
++ Tool 6: Comparison & synthetic input
 OUTPUT COMPARISON + SYNTHETIC INPUT: This script includes two additional tools. The first one is comparing two different 
 simulation runs, to check whether the model can reproduce twice similar answers. The second part is producing bar plots for the 
 different synthtetic water and sediment input.
