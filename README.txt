@@ -61,7 +61,10 @@ total sum of sediment yield, cumulative sediment yield (evolution of sediment yi
 channel fill in percentage and meters, and the cross section specific analysis of channel aggradation. 
 
 + Tool 5: Grain-size distribution (over time)
-Grain-size distribution: this script deals with the different grain-size distributions generated at the output of the model. In total there are 9 different grain-size fractions. This script analyzes the absolute amount of every grain-size fractions and the relative distribution. Additionally, it calcu-lates for every grain-size column the highest value (for the absolute and relative value) per simulation
+Grain-size distribution: this script deals with the different grain-size distributions generated at the output of the model. 
+In total there are 9 different grain-size fractions. This script analyzes the absolute amount of every grain-size fractions 
+and the relative distribution. Additionally, it calcu-lates for every grain-size column the highest value (for the absolute 
+and relative value) per simulation
 
 + Tool 6: Comparison & synthetic input
 OUTPUT COMPARISON + SYNTHETIC INPUT: This script includes two additional tools. The first one is comparing two different 
