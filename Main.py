@@ -1,11 +1,3 @@
-# Seminar_DMA
-
-#GRAIN –SIZE DISTRIBUTION: this script dealls with the #sediment distribution (9 classes of grain-size) 
-#generated at the output of the model. The absolute and relative values are displayed over a period of 100 years. 
-#Due to the complexity single grain sizes categories can be considered. Additionally, 
-#the script calculates the highest values of each grain-size category of each scenario
-
-#import used packages
 import numpy as np
 import glob, os
 import numpy as np
@@ -16,12 +8,12 @@ import matplotlib.pyplot as plt
 # numpy 1.15.0
 # matplotlib 2.2.2
 
-# settings 
+# settings
 load_max_files = 66
 year = 8760
 max_rows = year*100  # 8760 -> 1y; 17520 -> 2y;  35040 -> 4y
 load_cols = range(4, 14)
-skiprows = 5 # if I use all row the computer crashes
+skiprows = 2
 use_cols = range(0, 9)
 max_rows = max_rows / skiprows
 
